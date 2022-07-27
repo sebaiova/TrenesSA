@@ -1,0 +1,21 @@
+;; Trenes
+T;123;Electrico;10;1;A;
+T;253;Gasolina;11;2;A;
+T;200;Diesel;5;6;A;
+T;080;Gasolina;5;6;A;
+T;100;Electrico;5;6;B;
+T;050;Electrico;5;6;B;
+T;300;Gasolina;5;6;B;
+T;340;Diesel;5;6;B;
+T;117;Electrico;5;6;C;
+T;555;Gasolina;5;6;C;
+T;322;Diesel;5;6;D;
+T;090;Electrico;5;6;D;
+T;012;Gasolina;5;6;D;
+T;134;Gasolina;5;6;D;
+T;081;Diesel;5;6;E;
+T;223;Electrico;5;6;E;
+T;281;Gasolina;5;6;E;
+T;310;Gasolina;5;6;E;
+T;444;Electrico;5;6;no-asignado;
+T;175;Diesel;5;6;no-asignado;
