@@ -94,7 +94,7 @@ public class Main
             mostrar(String.format("Distancia entre \"%s\" y \"%s\" cambiado a %d exitosamente.", desde, hasta, distancia));
         else
             mostrar(String.format("No existe riel desde \"%s\" hasta \"%s\"", desde, hasta));
-    }
+    } 
     
     static private void menuAgregarRiel()
     {

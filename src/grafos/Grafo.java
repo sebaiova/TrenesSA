@@ -1,6 +1,8 @@
 package grafos;
 
+import conjuntistas.ArbolAVL;
 import conjuntistas.ArbolHeapMin;
+import conjuntistas.Conjunto;
 import java.util.HashMap;
 import lineales.dinamicas.Cola;
 import lineales.dinamicas.Lista;
@@ -13,14 +15,17 @@ import lineales.dinamicas.Lista;
 public class Grafo {
     
     private NodoVert inicio;
+    private int cantVertices;
     
     public Grafo()
     {
         inicio = null;
+        cantVertices = 0;
     }
     
     public void vaciar() 
     {
+        cantVertices = 0;
         inicio = null;
     }
     
@@ -32,6 +37,7 @@ public class Grafo {
         {
             this.inicio = new NodoVert(nuevoVertice, this.inicio);
             exito = true;
+            this.cantVertices++;
         }
         return exito;
     }
@@ -140,6 +146,7 @@ public class Grafo {
             if(!success && aux.getElem().equals(object)) 
             {
                 success = true;
+                this.cantVertices--;
                 if(prev==null)
                     this.inicio.setSigVertice(aux.getSigVertice());
                 else
@@ -292,48 +299,37 @@ public class Grafo {
     public Lista caminoMenorVertices(Object origen, Object destino)
     {
         boolean found = false;
-        ArbolHeapMin heap = new ArbolHeapMin(100);
         HashMap visitados = new HashMap();
         Lista camino = new Lista();
-        NodoVert vertOrigen = ubicarVertice(origen);
-        heap.insertar(new TuplaDijkstra(0, vertOrigen, null));
-        while( !heap.esVacio() && !found)
+        Cola cola = new Cola();
+        NodoVert vert = ubicarVertice(origen);
+        cola.poner(vert);
+        visitados.put(origen, origen); // El valor es el padre, pero si uso null putIfAbsent no funciona.
+        while(!cola.esVacia() && !found)
         {
-            TuplaDijkstra tupla = (TuplaDijkstra)heap.recuperarCima();
-            int distanciaActual = tupla.getDistancia();
-            NodoVert vert = tupla.getNodo();
+            vert = (NodoVert) cola.obtenerFrente();
             NodoAdy ady = vert.getPrimerAdy();
-            heap.eliminiarCima();
-            visitados.put(tupla.getNodo().getElem(), tupla);
-            if(tupla.getNodo().getElem().equals(destino))
-                found = true;
-            else 
+            cola.sacar();
+            while(ady != null && !found)
             {
-                while( ady != null ) 
+                NodoVert vertSig = ady.getVertice();
+                if(visitados.putIfAbsent(vertSig.getElem(), vert.getElem()) == null)
                 {
-                    TuplaDijkstra nuevaTupla = new TuplaDijkstra(distanciaActual + 1, ady.getVertice(), vert);
-                    if( !visitados.containsKey(nuevaTupla.getNodo().getElem()) )
-                    {     
-                        TuplaDijkstra datoPrevio = (TuplaDijkstra)heap.obtener(nuevaTupla);
-                        if( datoPrevio == null )
-                            heap.insertar(nuevaTupla);
-                        else if( nuevaTupla.compareTo(datoPrevio) < 0 )
-                            heap.actualizarValor(nuevaTupla);
-                    }
-                    ady = ady.getSigAdyacente();
+                    if(vertSig.getElem().equals(destino))
+                        found = true;
+                    else
+                        cola.poner(ady.getVertice());
                 }
+                ady = ady.getSigAdyacente();
             }
         }
-        TuplaDijkstra dj = (TuplaDijkstra) visitados.get(destino);
-        System.out.println(dj.getDistancia());
-        while(dj!=null) 
-        {
-            camino.insertar(dj.getNodo().getElem(), 1);
-            if(dj.getPrev()!=null)
-                dj = (TuplaDijkstra) visitados.get(dj.getPrev().getElem());
-            else 
-                dj = null;
+        
+        Object traceback = destino;
+        do {
+            camino.insertar(traceback, 1);
+            traceback = visitados.get(traceback);
         }
+        while(traceback!=origen);
         return camino;
     }
 
@@ -341,7 +337,7 @@ public class Grafo {
     public Lista caminoMenorDistancia(Object origen, Object destino)
     {        
         boolean found = false;
-        ArbolHeapMin heap = new ArbolHeapMin(100);
+        ArbolHeapMin heap = new ArbolHeapMin(this.cantVertices);
         HashMap visitados = new HashMap();
         Lista camino = new Lista();
         NodoVert vertOrigen = ubicarVertice(origen);
