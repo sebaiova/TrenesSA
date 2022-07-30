@@ -40,94 +40,118 @@ public class Grafo {
         return exito;
     }
     
-    public boolean insertarArco(Object desde, Object hasta, int etiqueta)
-    {
-        boolean success = insertarArcoSimple(desde, hasta, etiqueta);
-        if(success)
-            insertarArcoSimple(hasta, desde, etiqueta);
-        return success;
-    }
-    
-    private boolean insertarArcoSimple(Object origen, Object destino, int etiqueta)
+    public boolean insertarArco(Object origen, Object destino, int etiqueta)
     {
         boolean exito = false;
-        NodoVert vertOrigen = ubicarVertice(origen);
-        if(vertOrigen != null) 
+        NodoVert nodoOrigen = null;
+        NodoVert nodoDestino = null;
+        NodoVert aux = this.inicio;
+        //Busco los vertices de ambos objetos
+        while(aux != null && (nodoOrigen == null || nodoDestino == null))
         {
-            NodoVert vertDestino = ubicarVertice(destino);
-            if(vertDestino != null) 
+            if(aux.getElem().equals(origen))
+                nodoOrigen = aux;
+            if(aux.getElem().equals(destino))
+                nodoDestino = aux;
+            aux = aux.getSigVertice();
+        }
+        if(nodoOrigen != null && nodoDestino != null) 
+        {
+            nodoOrigen.setPrimerAdy(new NodoAdy(nodoDestino, nodoOrigen.getPrimerAdy(), etiqueta));
+            nodoDestino.setPrimerAdy(new NodoAdy(nodoOrigen, nodoDestino.getPrimerAdy(), etiqueta));
+            exito = true;
+        }
+        return exito;
+    }
+    
+    public boolean eliminarArco(Object origen, Object destino)
+    {
+        boolean exito = false;
+        NodoVert nodoOrigen = null;
+        NodoVert nodoDestino = null;
+        NodoVert aux = this.inicio;
+        //Busco los vertices de ambos objetos
+        while(aux != null && (nodoOrigen == null || nodoDestino == null))
+        {
+            if(aux.getElem().equals(origen))
+                nodoOrigen = aux;
+            if(aux.getElem().equals(destino))
+                nodoDestino = aux;
+            aux = aux.getSigVertice();
+        }
+        //Si los encuentro
+        if(nodoOrigen!=null && nodoDestino!=null)
+            exito = eliminarAdyacente(nodoOrigen, destino) && eliminarAdyacente(nodoDestino, origen);
+        
+        return exito;
+    }
+    
+    // Busca entre los nodos adyacentes de un vertice el que apunte a destino y lo borra.
+    private boolean eliminarAdyacente(NodoVert vert, Object destino)
+    {
+        boolean exito = false;
+        NodoAdy adyAux;
+        adyAux = vert.getPrimerAdy();
+        if(adyAux.getVertice().getElem().equals(destino))
+        {
+            vert.setPrimerAdy(adyAux.getSigAdyacente());
+            exito = true;
+        }
+        while(!exito && adyAux.getSigAdyacente() != null)
+        {
+            if(adyAux.getSigAdyacente().getVertice().getElem().equals(destino))
             {
-                vertOrigen.setPrimerAdy(new NodoAdy(vertDestino, vertOrigen.getPrimerAdy(), etiqueta));
+                adyAux.setSigAdyacente(adyAux.getSigAdyacente().getSigAdyacente());
                 exito = true;
             }
+            adyAux = adyAux.getSigAdyacente();
         }
         return exito;
     }
     
-    public boolean eliminarArco(Object desde, Object hasta)
-    {
-        boolean success;
-        success = eliminarArcoSimple(desde, hasta);
-        if(success)
-            eliminarArcoSimple(desde, hasta);
-        return success;
-    }
-    
-    private boolean eliminarArcoSimple(Object origen, Object destino) 
+    public boolean cambiarEtiqueta(Object origen, Object destino, int valor)
     {
         boolean exito = false;
-        NodoVert nodoOrigen = ubicarVertice(origen);
-        if(nodoOrigen != null) 
+        NodoVert nodoOrigen = null;
+        NodoVert nodoDestino = null;
+        NodoVert aux = this.inicio;
+        //Busco los vertices de ambos objetos
+        while(aux != null && (nodoOrigen == null || nodoDestino == null))
         {
-            NodoAdy aux = nodoOrigen.getPrimerAdy();
-            if(aux != null) 
-            {
-                if(aux.getVertice().getElem().equals(destino)) 
-                {
-                    nodoOrigen.setPrimerAdy(aux.getSigAdyacente());
-                    exito = true;
-                }
-                else 
-                    while(!exito && aux.getSigAdyacente() != null) 
-                    {
-                        if(aux.getSigAdyacente().getVertice().getElem().equals(destino)) 
-                        {
-                            aux.setSigAdyacente(aux.getSigAdyacente().getSigAdyacente());
-                            exito = true;
-                        }
-                        aux = aux.getSigAdyacente();
-                    }
-            }
+            if(aux.getElem().equals(origen))
+                nodoOrigen = aux;
+            if(aux.getElem().equals(destino))
+                nodoDestino = aux;
+            aux = aux.getSigVertice();
         }
-        return exito;
-    }
-    
-    public boolean cambiarEtiqueta(Object desde, Object hasta, int valor)
-    {
-        boolean success = cambiarEtiquetaSimple(desde, hasta, valor);
-        if(success)
-            cambiarEtiquetaSimple(hasta, desde, valor);
-        return success;
-    }
-    
-    private boolean cambiarEtiquetaSimple(Object origen, Object destino, int valor)
-    {
-        boolean success=false;
-        NodoVert nodo = ubicarVertice(origen);
-        if(nodo!=null) 
+        if(nodoOrigen!=null && nodoDestino!=null)
         {
-            NodoAdy ady = nodo.getPrimerAdy();
-            while(!success && ady!=null)
+            NodoAdy ady;
+            //Busco el nodo adyacente y le cambio la distancia
+            ady = nodoOrigen.getPrimerAdy();
+            while(!exito && ady!=null)
             {
                 if(ady.getVertice().getElem().equals(destino))
                 {
                     ady.setEtiqueta(valor);
-                    success = true;
+                    exito = true;
+                }
+                ady = ady.getSigAdyacente();
+            }
+            exito = false;
+            //En la otra direccion
+            ady = nodoDestino.getPrimerAdy();
+            while(!exito && ady!=null)
+            {
+                if(ady.getVertice().getElem().equals(origen))
+                {
+                    ady.setEtiqueta(valor);
+                    exito = true;
                 }
                 ady = ady.getSigAdyacente();
             }
         }
-        return success;
+        return exito;
     }
     
     //Elimina el vertice y los arcos que apuntan al mismo.
