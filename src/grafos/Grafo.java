@@ -302,7 +302,7 @@ public class Grafo {
         Cola cola = new Cola();
         NodoVert vert = ubicarVertice(origen);
         cola.poner(vert);
-        visitados.put(origen, origen); // El valor es el padre, pero si uso null putIfAbsent no funciona.
+        visitados.put(origen, origen); // El valor es el padre, pero si uso null para el primero, putIfAbsent no funciona.
         while(!cola.esVacia() && !found)
         {
             vert = (NodoVert) cola.obtenerFrente();
@@ -327,7 +327,8 @@ public class Grafo {
             camino.insertar(traceback, 1);
             traceback = visitados.get(traceback);
         }
-        while(traceback!=origen);
+        while(!traceback.equals(origen));
+        camino.insertar(traceback, 1);
         return camino;
     }
 
@@ -339,7 +340,7 @@ public class Grafo {
         HashMap visitados = new HashMap();
         Lista camino = new Lista();
         NodoVert vertOrigen = ubicarVertice(origen);
-        heap.insertar(new TuplaDijkstra(0, vertOrigen, null));
+        heap.insertar(new TuplaDijkstra(0, vertOrigen, vertOrigen));
         while(!heap.esVacio() && !found)
         {
             TuplaDijkstra tupla = (TuplaDijkstra)heap.recuperarCima();
@@ -347,7 +348,7 @@ public class Grafo {
             NodoVert vert = tupla.getNodo();
             NodoAdy ady = vert.getPrimerAdy();
             heap.eliminiarCima();
-            visitados.put(tupla.getNodo().getElem(), tupla);
+            visitados.put(tupla.getNodo().getElem(), tupla.getPrev().getElem());
             if(tupla.getNodo().getElem().equals(destino))
                 found = true;
             else 
@@ -367,16 +368,14 @@ public class Grafo {
                 }
             }
         }
-        TuplaDijkstra dj = (TuplaDijkstra) visitados.get(destino);
-        System.out.println(dj.getDistancia());
-        while(dj!=null) 
-        {
-            camino.insertar(dj.getNodo().getElem(), 1);
-            if(dj.getPrev()!=null)
-                dj = (TuplaDijkstra) visitados.get(dj.getPrev().getElem());
-            else
-                dj = null;
+        Object traceback = destino;
+        do {
+            camino.insertar(traceback, 1);
+            traceback = visitados.get(traceback);
         }
+        while(!traceback.equals(origen));
+        camino.insertar(traceback, 1);
+
         return camino;
     }
    
