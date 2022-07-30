@@ -1,8 +1,6 @@
 package grafos;
 
-import conjuntistas.ArbolAVL;
 import conjuntistas.ArbolHeapMin;
-import conjuntistas.Conjunto;
 import java.util.HashMap;
 import lineales.dinamicas.Cola;
 import lineales.dinamicas.Lista;

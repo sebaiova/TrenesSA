@@ -1,3 +1,73 @@
+;; Estaciones
+E;Juan Manuel de Rosas;Av. Triunvirato;4600;Villa Urquiza;codPostal;1;1;
+E;De los Incas;Av. de los Incas;4000;Parque Chas;codPostal;1;1;
+E;Federico Lacroze;Av. Corrientes;6800;Chacarita;codPostal;1;1;             <--- Doble rotacion Izquierda Derecha
+E;Pueyrredon;Av. Corrientes;2700;Balvanera;codPostal;1;1;
+E;Plaza de Mayo;Av. Hipolito Yrigoyen;387;Monserrat;1064;1;1;               <--- Doble rotacion Derecha Izquierda
+E;Callao;Av. Corrientes;1800;San Nicolas;codPostal;1;1;
+E;Carlos Pellegrini;Av. Corrientes;900;San Nicolas;codPostal;1;1;
+E;Congreso de Tucuman;Av. Cabildo;2800;Belgrano;codPostal;1;1;
+E;Juramento;Av. Cabildo;2000;Belgrano;codPostal;1;1;
+E;Plaza Italia;Av. Santa Fe;4100;Palermo;codPostal;1;1;
+E;Corrientes;Av. Pueyrredon;500;Balvanera;codPostal;1;1;
+E;Tribunales;Talcahuano;600;San Nicolas;codPostal;1;1;
+E;Catedral;San Martin;1;San Nicolas;codPostal;1;1;
+E;San Pedrito;Av. Rivadavia;9999;Flores;codPostal;1;1;
+E;Puan;Av. Rivadavia;9999;Caballito;codPostal;1;1;
+E;Primera Junta;Av. Rivadavia;9999;Caballito;codPostal;1;1;
+E;Loria;Av. Rivadavia;9999;Almagro;codPostal;1;1;
+E;Plaza Miserere;Av. Rivadavia;9999;Balvanera;codPostal;1;1;
+E;Lima;Av. de Mayo;9999;Monserrat;codPostal;1;1;
+E;Las Heras;Av. Pueyrredon;2001;Recoleta;codPostal;1;1;
+E;Once;Av. Pueyrredon;100;Balvanera;codPostal;1;1;
+E;Retiro;Av. Dr. Jose Ramos Mejia;1400;Retiro;codPostal;1;1;
+E;Independencia;Bernardo de Irigoyen;700;Constitucion;codPostal;1;1;
+E;Constitucion;Lima;1600;Constitucion;codPostal;1;1;
+;;
+;; Lineas
+L;A;Plaza de Mayo;Lima;Plaza Miserere;Loria;Primera Junta;Puan;San Pedrito;Juan Manuel de Rosas;Juramento;
+L;B;Plaza de Mayo;Carlos Pellegrini;Callao;Corrientes;Federico Lacroze;De los Incas;Juan Manuel de Rosas;
+L;C;Retiro;Catedral;Carlos Pellegrini;Lima;Independencia;Constitucion;
+L;D;Plaza de Mayo;Catedral;Tribunales;Pueyrredon;Plaza Italia;Juramento;Congreso de Tucuman;
+L;H;Las Heras;Pueyrredon;Corrientes;Once;Plaza Miserere;Retiro;
+;;
+;; Rieles
+;; A
+R;Plaza de Mayo;Lima;200;
+R;Lima;Plaza Miserere;500;
+R;Plaza Miserere;Loria;200;
+R;Loria;Primera Junta;300;
+R;Primera Junta;Puan;400;
+R;Puan;San Pedrito;300;
+R;San Pedrito;Juan Manuel de Rosas;800;
+;; B
+R;Plaza de Mayo;Carlos Pellegrini;300;
+R;Carlos Pellegrini;Callao;400;
+R;Callao;Corrientes;450;
+R;Corrientes;Federico Lacroze;500;
+R;Federico Lacroze;De los Incas;600;
+R;De los Incas;Juan Manuel de Rosas;600;
+R;Juan Manuel de Rosas;Juramento;100;
+;; C
+R;Retiro;Catedral;100;
+R;Catedral;Carlos Pellegrini;150;
+R;Carlos Pellegrini;Lima;200;
+R;Lima;Independencia;100;
+R;Independencia;Constitucion;100;
+;; D
+R;Plaza de Mayo;Catedral;200;
+R;Catedral;Tribunales;500;
+R;Tribunales;Pueyrredon;300;
+R;Pueyrredon;Plaza Italia;400;
+R;Plaza Italia;Juramento;300;
+R;Juramento;Congreso de Tucuman;250;
+;; H
+R;Retiro;Las Heras;900;
+R;Las Heras;Pueyrredon;100;
+R;Pueyrredon;Corrientes;200;
+R;Corrientes;Once;100;
+R;Once;Plaza Miserere;150;
+;;
 ;; Trenes
 T;123;Electrico;10;1;A;
 T;253;Gasolina;11;2;A;
@@ -19,3 +89,4 @@ T;281;Gasolina;5;6;E;
 T;310;Gasolina;5;6;E;
 T;444;Electrico;5;6;no-asignado;
 T;175;Diesel;5;6;no-asignado;
+;;

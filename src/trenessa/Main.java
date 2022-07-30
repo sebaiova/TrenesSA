@@ -423,7 +423,7 @@ public class Main
     
     static public void main(String[] args) 
     {
-        var data = leerArchivo("data/subtes.txt");
+        var data = leerArchivo("data/carga_inicial.txt");
         sistema = new TrenesSALogger(data);
         menuPrincipal();
     }

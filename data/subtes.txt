@@ -105,7 +105,7 @@ L;A;Plaza de Mayo;Peru;Piedras;Lima;Saenz Pena;Congreso;Pasco;Alberti;Plaza Mise
 L;B;Leandro N. Alem;Florida;Carlos Pellegrini;Uruguay;CallaoB;Pasteur;PueyrredonB;Carlos Gardel;Medrano;Angel Gallardo;Malabia;Dorrego;Federico Lacroze;Tronador;De los Incas;Echeverria;Juan Manuel de Rosas;
 L;C;RetiroC;General San Martin;Lavalle;Diagonal Norte;Avenida de Mayo;Moreno;IndependenciaC;San Juan;Constitucion;
 L;D;Catedral;9 de Julio;Tribunales;CallaoD;Facultad de Medicina;PueyrredonD;Aguero;Bulnes;Scalabrini Ortiz;Plaza Italia;Palermo;Ministro Carranza;Olleros;Jose Hernandez;Juramento;Congreso de Tucuman;
-L;E;RetiroE;Catalinas;Correo Central;Bolivar;Belgrano;IndependenciaE;San Jose;Entre Rios;Pichincha;Jujuy;General Urquiza;Boedo;Av. La Plata;Jose Maria Moreno;Emilio Mitre;Medalla Milagrosa;Varela;Plaza de los Virreyes;
+L;E;Retiro;Catalinas;Correo Central;Bolivar;Belgrano;IndependenciaE;San Jose;Entre Rios;Pichincha;Jujuy;General Urquiza;Boedo;Av. La Plata;Jose Maria Moreno;Emilio Mitre;Medalla Milagrosa;Varela;Plaza de los Virreyes;
 L;H;Facultad de Derecho;Las Heras;Santa Fe;Cordoba;Corrientes;Once;Venezuela;Humberto 1;Inclan;Caseros;Parque Patricios;Hospitales;
 ;;
 ;; Trenes

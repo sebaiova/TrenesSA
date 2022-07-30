@@ -265,11 +265,15 @@ public class TrenesSA {
     
     public String buscarEstacionesPrefijadas(String prefix)
     {
-        String output = "";
+        String output;
         int lenght = prefix.length();
-        char c = (char) (prefix.charAt(lenght-1) + 1);
-        String to = prefix.substring(0, lenght-1).concat(String.valueOf(c));
-        output = this.estaciones.listarRango(prefix, to).toString();
+        if(lenght==0)
+            output = getEstacionesAsString();
+        else {
+            char c = (char) (prefix.charAt(lenght-1) + 1);
+            String to = prefix.substring(0, lenght-1).concat(String.valueOf(c));
+            output = this.estaciones.listarRango(prefix, to).toString();
+        }
         return output;
     }
     
