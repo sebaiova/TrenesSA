@@ -1,8 +1,5 @@
 package trenessa;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Scanner;
 
 /**
@@ -12,19 +9,7 @@ import java.util.Scanner;
 public class Main
 {
     private static final Scanner scanner = new Scanner(System.in);
-    private static TrenesSA sistema;
-
-    static private String leerArchivo(String fileName)
-    {
-        String string = "";
-        try {
-            string = new String(Files.readAllBytes(Path.of(fileName)));
-        }
-        catch (IOException ex) {
-            System.out.println(fileName + " no encontrado");
-        }
-        return string;
-    }
+    private static TrenesSALogger sistema;
     
     static private void menuPrincipal()
     {
@@ -233,12 +218,12 @@ public class Main
                 input = preguntar("Atras", "Editar Calle", "Editar Numero", "Editar Ciudad", "Editar Codigo Postal", "Editar cantidad Plataformas", "Editar cantidad Vias");
                 switch (input) 
                 {
-                    case 1 -> estacion.getDomicilio().setCalle(pedirString("Ingrese la calle: "));
-                    case 2 -> estacion.getDomicilio().setNumero(pedirEntero("Ingrese el numero: "));
-                    case 3 -> estacion.getDomicilio().setCalle(pedirString("Ingrese la Ciudad: "));
-                    case 4 -> estacion.getDomicilio().setCodPostal(pedirString("Ingrese el Codigo Postal: "));
-                    case 5 -> estacion.setPlataformas(pedirEntero("Ingrese el numero de plataformas: "));
-                    case 6 -> estacion.setVias(pedirEntero("Ingrese el numero de vias: "));
+                    case 1 -> sistema.editarEstacion(nombre, "calle", pedirString("Ingrese la calle: "));
+                    case 2 -> sistema.editarEstacion(nombre, "numero", pedirEntero("Ingrese el numero: "));
+                    case 3 -> sistema.editarEstacion(nombre, "ciudad", pedirString("Ingrese la Ciudad: "));
+                    case 4 -> sistema.editarEstacion(nombre, "codPostal", pedirString("Ingrese el Codigo Postal: "));
+                    case 5 -> sistema.editarEstacion(nombre, "plataformas", pedirEntero("Ingrese el numero de plataformas: "));
+                    case 6 -> sistema.editarEstacion(nombre, "vias", pedirEntero("Ingrese el numero de vias: "));
                 }
             }
         }
@@ -305,24 +290,18 @@ public class Main
         int input = -1;
         System.out.println("Editando tren...\n");
         int id = pedirEntero("Ingrese la ID del tren: ");
-        Tren tren = sistema.obtenerTren(id);
-        if(tren==null)
+        if(sistema.obtenerTren(id)==null)
             mostrar(String.format("Tren con ID %d no existe.", id));
         else {
             while(input!=0) {
-                System.out.printf("Editando tren %s...\n\n", tren.toStringDetallado());
+                System.out.printf("Editando tren %s...\n\n", sistema.buscarInfoTren(id));
                 input = preguntar("Atras", "Editar Linea", "Editar Propuslion", "Editar Cantidad Vagones de Personas", "Editar Cantidad Vagones de Carga");
                 switch (input) 
                 {
-                    case 1 -> { String linea = pedirString("Ingrese la linea: ");
-                                if(!sistema.existeLinea(linea)) {
-                                    linea = "no-asignado";
-                                    System.out.println("Tren asignado a ninguna linea."); }
-                                tren.setLinea(linea);
-                    }
-                    case 2 -> tren.setPropulsion(pedirString("Ingrese el tipo de propulsion: "));
-                    case 3 -> tren.setVagonesPersonas(pedirEntero("Ingrese la cantidad de vagones de personas: "));
-                    case 4 -> tren.setVagonesCarga(pedirEntero("Ingrese la cantidad de vagones de carga: "));
+                    case 1 -> sistema.editarTren(id, "linea", pedirString("Ingrese la linea: "));
+                    case 2 -> sistema.editarTren(id, "propulsion", pedirString("Ingrese el tipo de propulsion: "));
+                    case 3 -> sistema.editarTren(id, "vagPersonas", pedirEntero("Ingrese la cantidad de vagones de personas: "));
+                    case 4 -> sistema.editarTren(id, "vagCarga", pedirEntero("Ingrese la cantidad de vagones de carga: "));
                 }
             } 
         }  
@@ -423,8 +402,8 @@ public class Main
     
     static public void main(String[] args)  
     {
-        var data = leerArchivo("data/carga_inicial.txt");
-        sistema = new TrenesSALogger(data);
-        menuPrincipal();
+        sistema = new TrenesSALogger("data/carga_inicial.txt");
+        menuPrincipal();   
+        sistema.close();
     }
 }

@@ -1,7 +1,11 @@
 package trenessa;
 
+import java.io.Closeable;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
@@ -11,12 +15,12 @@ import java.util.logging.Logger;
  *
  * @author sebastian.iovaldi
  */
-public class TrenesSALogger extends TrenesSA {
+public final class TrenesSALogger extends TrenesSA implements Closeable {
     
     PrintWriter log;
     DateTimeFormatter dateFormat;
     
-    TrenesSALogger(String data) 
+    TrenesSALogger(String file) 
     {
         super();
         dateFormat = DateTimeFormatter.ofPattern("dd-MM-yy HH;mm;ss");
@@ -25,6 +29,9 @@ public class TrenesSALogger extends TrenesSA {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(TrenesSALogger.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        String data = leerArchivo(file);
+        write(String.format("Leer data \"%s\"...", file), !data.isEmpty());
         load(data);
     }
     
@@ -73,11 +80,27 @@ public class TrenesSALogger extends TrenesSA {
     }
     
     @Override
+    public boolean editarEstacion(String nombre, String campo, Object valor)
+    {
+        boolean success = super.editarEstacion(nombre, campo, valor);
+        write(String.format("Editando \"%s\" de estacion \"%s\" con el valor \"%s\"", campo, nombre, valor), success);
+        return success;
+    }
+    
+    @Override
     public boolean cargarTren(int id, String propuslion, int vagPersonas, int vagCarga, String linea) 
     {
         boolean success = super.cargarTren(id, propuslion, vagPersonas, vagCarga, linea);
         write(String.format("Cargar Tren \"%d\"...", id), success);        
         return success;  
+    }
+    
+    @Override
+    public boolean editarTren(int id, String campo, Object valor)
+    {
+        boolean success = super.editarTren(id, campo, valor);
+        write(String.format("Editando \"%s\" de tren de ID: %d con el valor \"%s\"", campo, id, valor), success);
+        return success;
     }
     
     @Override
@@ -127,9 +150,54 @@ public class TrenesSALogger extends TrenesSA {
         write("Limpiar sistema...", true);
     }
     
+    @Override
+    protected boolean load(String data)
+    {
+        boolean success = super.load(data);
+        log.println();
+        write("Finalizando carga de datos...", success);
+        log.println();
+        printSystem();
+        return success;
+    }
+    
+    static private String leerArchivo(String fileName)
+    {
+        String string = "";
+        try {
+            string = new String(Files.readAllBytes(Path.of(fileName)));
+        }
+        catch (IOException ex) {
+            System.out.println(fileName + " no encontrado");
+        }
+        return string;
+    }
+    
     private void write(String string, boolean success)
     {
         log.printf("[%s] %-80s[%s].\n", LocalDateTime.now().format(dateFormat), string, success ? "SUCCEED" : "FAIL");
         log.flush();
+    }
+
+    private void printSystem()
+    {
+        log.println(getEstacionesRaw());
+        log.println();
+        log.println(getLineasRaw());
+        log.println();
+        log.println(getMapaRaw());
+        log.println(getTrenesRaw());
+        log.println("**************************************************************");
+        log.println();
+        log.flush();
+    }
+    
+    @Override
+    public void close() {
+        log.print("Cerrando sistema...\n\n");
+        printSystem();
+        log.print("Good bye!\n");
+        log.flush();
+        log.close();
     }
 }

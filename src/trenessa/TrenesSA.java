@@ -274,6 +274,50 @@ public class TrenesSA {
         return output;
     }
     
+    //Una monstruosidad, deberia hacer metodos distintos, lo dejo asi por simplicidad, luego es un solo método al que hacerle override para el Log.
+    //Edito el campo (atributo) de una estacion con el valor
+    //Posibles campos: calle, numero, ciudad, codPostal, plataformas, vias
+    public boolean editarEstacion(String nombre, String campo, Object valor)
+    {
+        boolean success = false;
+        Estacion estacion = (Estacion) estaciones.obtener(nombre);
+        if(estacion!=null) 
+        {
+            switch(campo)
+            {
+                case "calle" ->         estacion.getDomicilio().setCalle((String) valor);
+                case "numero" ->        estacion.getDomicilio().setNumero((int) valor);
+                case "ciudad" ->        estacion.getDomicilio().setCiudad((String) valor);
+                case "codPostal" ->     estacion.getDomicilio().setCodPostal((String) valor);
+                case "plataformas" ->   estacion.setPlataformas((int) valor);
+                case "vias" ->          estacion.setVias((int) valor);
+            }
+            success = true;
+        }
+        return success;
+    }
+    //Los mismo que editarEstacion...
+    public boolean editarTren(int id, String campo, Object valor)
+    {
+        boolean success = false;
+        Tren tren = (Tren) trenes.obtener(id);
+        if(tren!=null)
+        {
+            switch(campo)
+            {
+                case "linea" -> {       if(!existeLinea((String) valor)) 
+                                            tren.setLinea("no-asignado");
+                                        else
+                                            tren.setLinea((String) valor); }
+                case "propulsion" ->    tren.setPropulsion((String) valor);
+                case "vagPersonas" ->   tren.setVagonesPersonas((int) valor);
+                case "vagCarga" ->      tren.setVagonesCarga((int) valor);
+            }
+            success = true;
+        }
+        return success;
+    }
+    
     protected boolean load(String data)
     {
         boolean exito = false;

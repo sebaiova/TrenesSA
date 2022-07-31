@@ -1,0 +1,231 @@
+[31-07-22 13;10;26] Leer data "data/carga_inicial.txt"...                                           [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "Juan Manuel de Rosas"...                                       [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "De los Incas"...                                               [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "Federico Lacroze"...                                           [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "Pueyrredon"...                                                 [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "Plaza de Mayo"...                                              [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "Callao"...                                                     [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "Carlos Pellegrini"...                                          [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "Congreso de Tucuman"...                                        [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "Juramento"...                                                  [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "Plaza Italia"...                                               [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "Corrientes"...                                                 [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "Tribunales"...                                                 [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "Catedral"...                                                   [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "San Pedrito"...                                                [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "Puan"...                                                       [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "Primera Junta"...                                              [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "Loria"...                                                      [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "Plaza Miserere"...                                             [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "Lima"...                                                       [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "Las Heras"...                                                  [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "Once"...                                                       [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "Retiro"...                                                     [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "Independencia"...                                              [SUCCEED].
+[31-07-22 13;10;26] Cargar Estacion "Constitucion"...                                               [SUCCEED].
+[31-07-22 13;10;26] Cargar Linea "A"...                                                             [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Plaza de Mayo" a Linea "A"...                                 [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Lima" a Linea "A"...                                          [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Plaza Miserere" a Linea "A"...                                [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Loria" a Linea "A"...                                         [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Primera Junta" a Linea "A"...                                 [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Puan" a Linea "A"...                                          [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "San Pedrito" a Linea "A"...                                   [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Juan Manuel de Rosas" a Linea "A"...                          [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Juramento" a Linea "A"...                                     [SUCCEED].
+[31-07-22 13;10;26] Cargar Linea "B"...                                                             [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Plaza de Mayo" a Linea "B"...                                 [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Carlos Pellegrini" a Linea "B"...                             [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Callao" a Linea "B"...                                        [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Corrientes" a Linea "B"...                                    [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Federico Lacroze" a Linea "B"...                              [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "De los Incas" a Linea "B"...                                  [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Juan Manuel de Rosas" a Linea "B"...                          [SUCCEED].
+[31-07-22 13;10;26] Cargar Linea "C"...                                                             [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Retiro" a Linea "C"...                                        [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Catedral" a Linea "C"...                                      [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Carlos Pellegrini" a Linea "C"...                             [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Lima" a Linea "C"...                                          [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Independencia" a Linea "C"...                                 [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Constitucion" a Linea "C"...                                  [SUCCEED].
+[31-07-22 13;10;26] Cargar Linea "D"...                                                             [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Plaza de Mayo" a Linea "D"...                                 [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Catedral" a Linea "D"...                                      [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Tribunales" a Linea "D"...                                    [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Pueyrredon" a Linea "D"...                                    [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Plaza Italia" a Linea "D"...                                  [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Juramento" a Linea "D"...                                     [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Congreso de Tucuman" a Linea "D"...                           [SUCCEED].
+[31-07-22 13;10;26] Cargar Linea "H"...                                                             [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Las Heras" a Linea "H"...                                     [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Pueyrredon" a Linea "H"...                                    [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Corrientes" a Linea "H"...                                    [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Once" a Linea "H"...                                          [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Plaza Miserere" a Linea "H"...                                [SUCCEED].
+[31-07-22 13;10;26] Agregar Estacion "Retiro" a Linea "H"...                                        [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Plaza de Mayo" Hasta "Lima"...                            [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Lima" Hasta "Plaza Miserere"...                           [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Plaza Miserere" Hasta "Loria"...                          [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Loria" Hasta "Primera Junta"...                           [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Primera Junta" Hasta "Puan"...                            [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Puan" Hasta "San Pedrito"...                              [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "San Pedrito" Hasta "Juan Manuel de Rosas"...              [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Plaza de Mayo" Hasta "Carlos Pellegrini"...               [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Carlos Pellegrini" Hasta "Callao"...                      [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Callao" Hasta "Corrientes"...                             [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Corrientes" Hasta "Federico Lacroze"...                   [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Federico Lacroze" Hasta "De los Incas"...                 [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "De los Incas" Hasta "Juan Manuel de Rosas"...             [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Juan Manuel de Rosas" Hasta "Juramento"...                [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Retiro" Hasta "Catedral"...                               [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Catedral" Hasta "Carlos Pellegrini"...                    [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Carlos Pellegrini" Hasta "Lima"...                        [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Lima" Hasta "Independencia"...                            [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Independencia" Hasta "Constitucion"...                    [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Plaza de Mayo" Hasta "Catedral"...                        [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Catedral" Hasta "Tribunales"...                           [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Tribunales" Hasta "Pueyrredon"...                         [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Pueyrredon" Hasta "Plaza Italia"...                       [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Plaza Italia" Hasta "Juramento"...                        [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Juramento" Hasta "Congreso de Tucuman"...                 [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Retiro" Hasta "Las Heras"...                              [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Las Heras" Hasta "Pueyrredon"...                          [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Pueyrredon" Hasta "Corrientes"...                         [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Corrientes" Hasta "Once"...                               [SUCCEED].
+[31-07-22 13;10;26] Cargar el Riel Desde "Once" Hasta "Plaza Miserere"...                           [SUCCEED].
+[31-07-22 13;10;26] Cargar Tren "123"...                                                            [SUCCEED].
+[31-07-22 13;10;26] Cargar Tren "253"...                                                            [SUCCEED].
+[31-07-22 13;10;26] Cargar Tren "200"...                                                            [SUCCEED].
+[31-07-22 13;10;26] Cargar Tren "80"...                                                             [SUCCEED].
+[31-07-22 13;10;26] Cargar Tren "100"...                                                            [SUCCEED].
+[31-07-22 13;10;26] Cargar Tren "50"...                                                             [SUCCEED].
+[31-07-22 13;10;26] Cargar Tren "300"...                                                            [SUCCEED].
+[31-07-22 13;10;26] Cargar Tren "340"...                                                            [SUCCEED].
+[31-07-22 13;10;26] Cargar Tren "117"...                                                            [SUCCEED].
+[31-07-22 13;10;26] Cargar Tren "555"...                                                            [SUCCEED].
+[31-07-22 13;10;26] Cargar Tren "322"...                                                            [SUCCEED].
+[31-07-22 13;10;26] Cargar Tren "90"...                                                             [SUCCEED].
+[31-07-22 13;10;26] Cargar Tren "12"...                                                             [SUCCEED].
+[31-07-22 13;10;26] Cargar Tren "134"...                                                            [SUCCEED].
+[31-07-22 13;10;26] Cargar Tren "81"...                                                             [SUCCEED].
+[31-07-22 13;10;26] Cargar Tren "223"...                                                            [SUCCEED].
+[31-07-22 13;10;26] Cargar Tren "281"...                                                            [SUCCEED].
+[31-07-22 13;10;26] Cargar Tren "310"...                                                            [SUCCEED].
+[31-07-22 13;10;26] Cargar Tren "444"...                                                            [SUCCEED].
+[31-07-22 13;10;26] Cargar Tren "175"...                                                            [SUCCEED].
+
+[31-07-22 13;10;26] Finalizando carga de datos...                                                   [SUCCEED].
+
+Arbol AVL con las Estaciones:
+4 [Loria]: [ Federico Lacroze | Plaza de Mayo ]
+3 [Federico Lacroze]: [ Congreso de Tucuman | Juramento ]
+2 [Congreso de Tucuman]: [ Carlos Pellegrini | Corrientes ]
+1 [Carlos Pellegrini]: [ Callao | Catedral ]
+0 [Callao]: [ - | - ]
+0 [Catedral]: [ - | - ]
+1 [Corrientes]: [ Constitucion | De los Incas ]
+0 [Constitucion]: [ - | - ]
+0 [De los Incas]: [ - | - ]
+2 [Juramento]: [ Juan Manuel de Rosas | Lima ]
+1 [Juan Manuel de Rosas]: [ Independencia | - ]
+0 [Independencia]: [ - | - ]
+1 [Lima]: [ Las Heras | - ]
+0 [Las Heras]: [ - | - ]
+3 [Plaza de Mayo]: [ Plaza Italia | Pueyrredon ]
+1 [Plaza Italia]: [ Once | Plaza Miserere ]
+0 [Once]: [ - | - ]
+0 [Plaza Miserere]: [ - | - ]
+2 [Pueyrredon]: [ Puan | San Pedrito ]
+1 [Puan]: [ Primera Junta | - ]
+0 [Primera Junta]: [ - | - ]
+1 [San Pedrito]: [ Retiro | Tribunales ]
+0 [Retiro]: [ - | - ]
+0 [Tribunales]: [ - | - ]
+
+Mapeo de cada linea en un HashMap con sus estacion en nodos enlazados:
+{A=[Juan Manuel de Rosas][Juramento][Lima][Loria][Plaza Miserere][Plaza de Mayo][Primera Junta][Puan][San Pedrito], B=[Callao][Carlos Pellegrini][Corrientes][De los Incas][Federico Lacroze][Juan Manuel de Rosas][Plaza de Mayo], C=[Carlos Pellegrini][Catedral][Constitucion][Independencia][Lima][Retiro], D=[Catedral][Congreso de Tucuman][Juramento][Plaza Italia][Plaza de Mayo][Pueyrredon][Tribunales], H=[Corrientes][Las Heras][Once][Plaza Miserere][Pueyrredon][Retiro]}
+
+Estaciones y los rieles con sus respectivas distancias:
+Vertices: [Constitucion][Independencia][Retiro][Once][Las Heras][Lima][Plaza Miserere][Loria][Primera Junta][Puan][San Pedrito][Catedral][Tribunales][Corrientes][Plaza Italia][Juramento][Congreso de Tucuman][Carlos Pellegrini][Callao][Plaza de Mayo][Pueyrredon][Federico Lacroze][De los Incas][Juan Manuel de Rosas]
+Arcos: 	[Constitucion]-100->[Independencia]
+	[Independencia]-100->[Constitucion]
+	[Independencia]-100->[Lima]
+	[Retiro]-900->[Las Heras]
+	[Retiro]-100->[Catedral]
+	[Once]-150->[Plaza Miserere]
+	[Once]-100->[Corrientes]
+	[Las Heras]-100->[Pueyrredon]
+	[Las Heras]-900->[Retiro]
+	[Lima]-100->[Independencia]
+	[Lima]-200->[Carlos Pellegrini]
+	[Lima]-500->[Plaza Miserere]
+	[Lima]-200->[Plaza de Mayo]
+	[Plaza Miserere]-150->[Once]
+	[Plaza Miserere]-200->[Loria]
+	[Plaza Miserere]-500->[Lima]
+	[Loria]-300->[Primera Junta]
+	[Loria]-200->[Plaza Miserere]
+	[Primera Junta]-400->[Puan]
+	[Primera Junta]-300->[Loria]
+	[Puan]-300->[San Pedrito]
+	[Puan]-400->[Primera Junta]
+	[San Pedrito]-800->[Juan Manuel de Rosas]
+	[San Pedrito]-300->[Puan]
+	[Catedral]-500->[Tribunales]
+	[Catedral]-200->[Plaza de Mayo]
+	[Catedral]-150->[Carlos Pellegrini]
+	[Catedral]-100->[Retiro]
+	[Tribunales]-300->[Pueyrredon]
+	[Tribunales]-500->[Catedral]
+	[Corrientes]-100->[Once]
+	[Corrientes]-200->[Pueyrredon]
+	[Corrientes]-500->[Federico Lacroze]
+	[Corrientes]-450->[Callao]
+	[Plaza Italia]-300->[Juramento]
+	[Plaza Italia]-400->[Pueyrredon]
+	[Juramento]-250->[Congreso de Tucuman]
+	[Juramento]-300->[Plaza Italia]
+	[Juramento]-1000->[Juan Manuel de Rosas]
+	[Congreso de Tucuman]-250->[Juramento]
+	[Carlos Pellegrini]-200->[Lima]
+	[Carlos Pellegrini]-150->[Catedral]
+	[Carlos Pellegrini]-400->[Callao]
+	[Carlos Pellegrini]-300->[Plaza de Mayo]
+	[Callao]-450->[Corrientes]
+	[Callao]-400->[Carlos Pellegrini]
+	[Plaza de Mayo]-200->[Catedral]
+	[Plaza de Mayo]-300->[Carlos Pellegrini]
+	[Plaza de Mayo]-200->[Lima]
+	[Pueyrredon]-200->[Corrientes]
+	[Pueyrredon]-100->[Las Heras]
+	[Pueyrredon]-400->[Plaza Italia]
+	[Pueyrredon]-300->[Tribunales]
+	[Federico Lacroze]-600->[De los Incas]
+	[Federico Lacroze]-500->[Corrientes]
+	[De los Incas]-600->[Juan Manuel de Rosas]
+	[De los Incas]-600->[Federico Lacroze]
+	[Juan Manuel de Rosas]-1000->[Juramento]
+	[Juan Manuel de Rosas]-600->[De los Incas]
+	[Juan Manuel de Rosas]-800->[San Pedrito]
+
+Arbol AVL con los Trenes:
+4 [200]: [ 100 | 300 ]
+3 [100]: [ 80 | 123 ]
+2 [80]: [ 50 | 90 ]
+1 [50]: [ 12 | - ]
+0 [12]: [ - | - ]
+1 [90]: [ 81 | - ]
+0 [81]: [ - | - ]
+2 [123]: [ 117 | 134 ]
+0 [117]: [ - | - ]
+1 [134]: [ - | 175 ]
+0 [175]: [ - | - ]
+3 [300]: [ 253 | 340 ]
+1 [253]: [ 223 | 281 ]
+0 [223]: [ - | - ]
+0 [281]: [ - | - ]
+2 [340]: [ 322 | 555 ]
+1 [322]: [ 310 | - ]
+0 [310]: [ - | - ]
+1 [555]: [ 444 | - ]
+0 [444]: [ - | - ]

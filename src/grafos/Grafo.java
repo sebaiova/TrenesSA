@@ -318,6 +318,8 @@ public class Grafo {
         }
     }
  
+    // Recorrido en BFS. 
+    // PRECONDICION: EL CAMINO DEBE EXISTIR 
     public Lista caminoMenorVertices(Object origen, Object destino)
     {
         boolean found = false;
@@ -357,6 +359,7 @@ public class Grafo {
     }
 
     //Algoritmo de Dijkstra
+    // PRECONDICION: EL CAMINO DEBE EXISTIR 
     public Lista caminoMenorDistancia(Object origen, Object destino)
     {        
         boolean found = false;
