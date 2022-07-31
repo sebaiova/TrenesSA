@@ -18,7 +18,7 @@ public class TrenesSA {
     private final Grafo mapa;
     private final HashMap lineas;
    
-    private boolean cargarData(String data) 
+    protected boolean cargarData(String data) 
     {
         boolean success = true;
         String ln = "";
@@ -52,7 +52,7 @@ public class TrenesSA {
         return success;
     }
     
-    protected boolean cargarEstacion(String nombre, String calle, int numero, String barrio, String codPostal, int plataformas, int vias) 
+    public boolean cargarEstacion(String nombre, String calle, int numero, String barrio, String codPostal, int plataformas, int vias) 
     {
         boolean success;
         success = estaciones.insertar(nombre, new Estacion(nombre, new Domicilio(calle, numero, barrio, codPostal), plataformas, vias));
@@ -122,10 +122,7 @@ public class TrenesSA {
     
     public boolean editarDistanciaRiel(String origen, String destino, int distancia)
     {
-        boolean success = mapa.cambiarEtiqueta(origen, destino, distancia);
-        if(success)
-            mapa.cambiarEtiqueta(destino, origen, distancia);
-        return success;
+        return mapa.cambiarEtiqueta(origen, destino, distancia);
     }
     
     public boolean eliminarTren(int id)
@@ -147,7 +144,7 @@ public class TrenesSA {
         return success;
     }
     
-    private void limpiarSistema() 
+    public void limpiarSistema() 
     {
         estaciones.vaciar();
         trenes.vaciar();
@@ -277,14 +274,19 @@ public class TrenesSA {
         return output;
     }
     
-    public TrenesSA(String data) 
+    protected boolean load(String data)
+    {
+        boolean exito = false;
+        if(!data.isEmpty())
+            exito = cargarData(data);
+        return exito;
+    }
+    
+    public TrenesSA() 
     {
         this.estaciones = new Diccionario();
         this.trenes = new Diccionario();
         this.mapa = new Grafo();
         this.lineas = new HashMap();
-        
-        if(!data.isEmpty())
-            cargarData(data);
     }
 }

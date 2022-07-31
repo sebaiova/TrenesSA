@@ -6,6 +6,7 @@
             <name>TrenesSA</name>
             <explicit-platform explicit-source-supported="true"/>
             <source-roots>
+                <root id="src.log.dir"/>
                 <root id="src.data.dir"/>
                 <root id="src.dir"/>
             </source-roots>

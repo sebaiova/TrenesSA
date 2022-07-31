@@ -421,7 +421,7 @@ public class Main
         System.out.print("\n");
     }
     
-    static public void main(String[] args) 
+    static public void main(String[] args)  
     {
         var data = leerArchivo("data/carga_inicial.txt");
         sistema = new TrenesSALogger(data);
