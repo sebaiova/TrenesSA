@@ -10,6 +10,8 @@ import lineales.dinamicas.Lista;
  * @author sebastian.iovaldi
  */
 
+
+/// Grafo No-Dirigido, Etiquetado
 public class Grafo {
     
     private NodoVert inicio;
@@ -384,13 +386,7 @@ public class Grafo {
                 {
                     TuplaDijkstra nuevaTupla = new TuplaDijkstra(distanciaActual + ady.getEtiqueta(), ady.getVertice(), vert);
                     if( !visitados.containsKey(nuevaTupla.getNodo().getElem()) )
-                    {     
-                        TuplaDijkstra datoPrevio = (TuplaDijkstra)heap.obtener(nuevaTupla);
-                        if( datoPrevio == null )
-                            heap.insertar(nuevaTupla);
-                        else if( nuevaTupla.compareTo(datoPrevio) < 0 )
-                            heap.actualizarValor(nuevaTupla);
-                    }
+                        heap.insertarSiMenor(nuevaTupla);
                     ady = ady.getSigAdyacente();
                 }
             }

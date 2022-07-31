@@ -29,21 +29,28 @@ public class ArbolHeapMin {
         return true;
     }
     
-    public boolean actualizarValor(Comparable elem)
+    //Inserta si el elemento no existe en el arbol o si se encuentra uno menor al existente.
+    //No tiene sentido, solo funciona porque el elemento que guardo se compara y se iguala con sus pares de forma distinta.
+    //Necesito una estructura que establezca prioridad de otra manera, pero no una Cola, porque no me importa el orden de llegada.
+    public boolean insertarSiMenor(Comparable elem)
     {
         boolean success = true;
         int pos = localizarElem(elem);
-        if(pos != -1) 
+        if(pos != -1)
         {
-            int comparacion = elem.compareTo(array[pos]);
-            array[pos] = elem;
-            if(comparacion > 0)
-                hacerBajar(pos);
-            else if(comparacion < 0)
+            if(elem.compareTo(array[pos]) < 0)
+            {
+                array[pos] = elem;
                 hacerSubir(pos);
+            }
+            else
+                success = false;
         }
-        else
-            success = false;
+        else 
+        {
+            array[++ultimo] = elem;
+            hacerSubir(ultimo);
+        }
         return success;
     }
     
@@ -57,20 +64,6 @@ public class ArbolHeapMin {
         array[ultimo--] = null;
         hacerBajar(1);    
         return true;
-    }
-    
-    public Comparable obtener(Comparable elem) 
-    {
-        Comparable encontrado = null;
-        int i=1;
-        while( encontrado == null && i<=this.ultimo ) 
-        {
-            if(array[i].equals(elem))
-                encontrado = array[i];
-            else 
-                i++;
-        }
-        return encontrado;
     }
     
     private void hacerSubir(int pos)
@@ -129,6 +122,7 @@ public class ArbolHeapMin {
         return index;
     }
     
+    @Override
     public String toString()
     {
         String string = "";
