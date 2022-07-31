@@ -30,8 +30,9 @@ public class ArbolHeapMin {
     }
     
     //Inserta si el elemento no existe en el arbol o si se encuentra uno menor al existente.
-    //No tiene sentido, solo funciona porque el elemento que guardo se compara y se iguala con sus pares de forma distinta.
+    //No tiene sentido, solo funciona porque los elementos que guardo se comparan y se igualan con atributos distintos.
     //Necesito una estructura que establezca prioridad de otra manera, pero no una Cola, porque no me importa el orden de llegada.
+    //Una especia de Conjunto de Prioridad
     public boolean insertarSiMenor(Comparable elem)
     {
         boolean success = true;
