@@ -7,29 +7,54 @@ package trenessa;
 public class Estacion implements Comparable {
     
     final private String nombre;
-    private final Domicilio domicilio;
     private int cantPlataformas;
     private int cantVias;
+    private String calle;
+    private int numero;
+    private String ciudad;
+    private String codPostal;
     
     public Estacion(String nombre) 
     {
         this.nombre = nombre;
-        this.domicilio = null;
         this.cantPlataformas = 1;
         this.cantVias = 1;
     }
     
-    public Estacion(String nombre, Domicilio domicilio, int plataformas, int vias) 
+    public Estacion(String nombre, String calle, int numero, String ciudad, String codPostal, int plataformas, int vias) 
     {
         this.nombre = nombre;
-        this.domicilio = domicilio;
+        this.calle = calle;
+        this.numero = numero;
+        this.ciudad = ciudad;
+        this.codPostal = codPostal;
         this.cantPlataformas = plataformas;
         this.cantVias = vias;
     }
     
-    public Domicilio getDomicilio()
+    public String getCiudad()
     {
-        return domicilio;
+        return this.ciudad;
+    }
+    
+    public void setCalle(String calle)
+    {
+        this.calle = calle;
+    }
+    
+    public void setNumero(int numero)
+    {
+        this.numero = numero;
+    }
+    
+    public void setCiudad(String ciudad)
+    {
+        this.ciudad = ciudad;
+    }
+    
+    public void setCodPostal(String cp)
+    {
+        this.codPostal = cp;
     }
     
     public void setPlataformas(int x)
@@ -55,6 +80,6 @@ public class Estacion implements Comparable {
     
     public String toStringDetallado() 
     {
-        return String.format("[Estacion: Nombre: %s | Domicilio: %s | Cantidad Plataformas/Vias: %d/%d].", nombre, domicilio.toString(), cantPlataformas, cantVias);
+        return String.format("[Estacion: Nombre: %s | Domicilio: %s %d - %s - CP: %s | Cantidad Plataformas/Vias: %d/%d].", nombre, calle, numero, ciudad, codPostal, cantPlataformas, cantVias);
     }
 }

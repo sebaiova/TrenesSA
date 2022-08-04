@@ -55,7 +55,7 @@ public class TrenesSA {
     public boolean cargarEstacion(String nombre, String calle, int numero, String barrio, String codPostal, int plataformas, int vias) 
     {
         boolean success;
-        success = estaciones.insertar(nombre, new Estacion(nombre, new Domicilio(calle, numero, barrio, codPostal), plataformas, vias));
+        success = estaciones.insertar(nombre, new Estacion(nombre, calle, numero, barrio, codPostal, plataformas, vias));
         if(success)
             success = mapa.insertarVertice(nombre);
         return success;
@@ -239,7 +239,7 @@ public class TrenesSA {
                     {
                         String nombreEstacion = (String) estDelTren.recuperar(1);
                         Estacion estacion = (Estacion) this.estaciones.obtener(nombreEstacion);
-                        ciudades.agregar(estacion.getDomicilio().getCiudad());
+                        ciudades.agregar(estacion.getCiudad());
                         estDelTren.eliminar(1);
                     }
                     output = ciudades.toString();
@@ -285,10 +285,10 @@ public class TrenesSA {
         {
             switch(campo)
             {
-                case "calle" ->         estacion.getDomicilio().setCalle((String) valor);
-                case "numero" ->        estacion.getDomicilio().setNumero((int) valor);
-                case "ciudad" ->        estacion.getDomicilio().setCiudad((String) valor);
-                case "codPostal" ->     estacion.getDomicilio().setCodPostal((String) valor);
+                case "calle" ->         estacion.setCalle((String) valor);
+                case "numero" ->        estacion.setNumero((int) valor);
+                case "ciudad" ->        estacion.setCiudad((String) valor);
+                case "codPostal" ->     estacion.setCodPostal((String) valor);
                 case "plataformas" ->   estacion.setPlataformas((int) valor);
                 case "vias" ->          estacion.setVias((int) valor);
             }
