@@ -1,8 +1,8 @@
 package grafos;
 
-import conjuntistas.ArbolHeapMin;
 import java.util.HashMap;
 import lineales.dinamicas.Cola;
+import lineales.dinamicas.ColaPrioridad;
 import lineales.dinamicas.Lista;
 
 /**
@@ -365,29 +365,34 @@ public class Grafo {
     public Lista caminoMenorDistancia(Object origen, Object destino)
     {        
         boolean found = false;
-        ArbolHeapMin heap = new ArbolHeapMin(this.cantVertices);
+        ColaPrioridad colaPrioridad = new ColaPrioridad(cantVertices*2);
         HashMap visitados = new HashMap();
         Lista camino = new Lista();
         NodoVert vertOrigen = ubicarVertice(origen);
-        heap.insertar(new TuplaDijkstra(0, vertOrigen, vertOrigen));
-        while(!heap.esVacio() && !found)
+        colaPrioridad.insertar(new TuplaDijkstra(0, vertOrigen, vertOrigen), 0);
+        while(!colaPrioridad.esVacio() && !found)
         {
-            TuplaDijkstra tupla = (TuplaDijkstra)heap.recuperarCima();
-            int distanciaActual = tupla.getDistancia();
-            NodoVert vert = tupla.getNodo();
-            NodoAdy ady = vert.getPrimerAdy();
-            heap.eliminiarCima();
-            visitados.put(tupla.getNodo().getElem(), tupla.getPrev().getElem());
-            if(tupla.getNodo().getElem().equals(destino))
-                found = true;
-            else 
+            TuplaDijkstra tupla = (TuplaDijkstra)colaPrioridad.recuperarFrente();
+            colaPrioridad.eliminiarFrente();
+            if( !visitados.containsKey(tupla.getNodo().getElem()) )
             {
-                while(ady != null) 
+                int distanciaActual = tupla.getDistancia();
+                NodoVert vert = tupla.getNodo();
+                NodoAdy ady = vert.getPrimerAdy();
+                visitados.put(vert.getElem(), tupla.getPrev().getElem());
+                if(vert.getElem().equals(destino))
+                    found = true;
+                else 
                 {
-                    TuplaDijkstra nuevaTupla = new TuplaDijkstra(distanciaActual + ady.getEtiqueta(), ady.getVertice(), vert);
-                    if( !visitados.containsKey(nuevaTupla.getNodo().getElem()) )
-                        heap.insertarSiMenor(nuevaTupla);
-                    ady = ady.getSigAdyacente();
+                    while(ady != null) 
+                    {
+                        TuplaDijkstra nuevaTupla = new TuplaDijkstra(distanciaActual + ady.getEtiqueta(), ady.getVertice(), vert);
+                        if( !visitados.containsKey(nuevaTupla.getNodo().getElem()) )
+                        {
+                            colaPrioridad.insertar(nuevaTupla, nuevaTupla.getDistancia());
+                        }
+                        ady = ady.getSigAdyacente();
+                    }
                 }
             }
         }

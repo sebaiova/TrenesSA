@@ -1,0 +1,3 @@
+Los datos de carga en la carpeta ./data.
+Los logs se guardan en ./log.
+Los diagramas en ./diagramas.pdf

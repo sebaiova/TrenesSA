@@ -151,7 +151,7 @@ public final class TrenesSALogger extends TrenesSA implements Closeable {
     }
     
     @Override
-    protected boolean load(String data)
+    public boolean load(String data)
     {
         boolean success = super.load(data);
         log.println();

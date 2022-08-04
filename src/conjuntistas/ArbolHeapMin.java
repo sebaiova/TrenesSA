@@ -97,7 +97,7 @@ public class ArbolHeapMin {
             }
     }
     
-    int candidatoABajar(int x, int y) 
+    private int candidatoABajar(int x, int y) 
     {
         return array[x].compareTo(array[y]) < 0 ? x : y;
     }

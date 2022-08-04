@@ -98,7 +98,8 @@ public class Diccionario {
                 reemplazo.setDerecho(nodo.getDerecho());
             }
 
-            if(reemplazo!=null) {
+            if(reemplazo!=null) 
+            {
                 reemplazo.recalcularAltura();
                 nodo = reemplazo; // <--- al final se balancea nodo
             }
@@ -180,7 +181,7 @@ public class Diccionario {
     
     private int obtenerBalance(NodoAVLDicc nodo)
     {
-        int balance = (nodo.getIzquierdo()==null?-1 : nodo.getIzquierdo().getAltura()) - (nodo.getDerecho()==null?-1 : nodo.getDerecho().getAltura());
+        int balance = (nodo.getIzquierdo()==null? -1 : nodo.getIzquierdo().getAltura()) - (nodo.getDerecho()==null? -1 : nodo.getDerecho().getAltura());
         return balance;
     }
     
